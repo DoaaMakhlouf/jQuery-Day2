@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>problem1</title>
+    <script src="jquery-3.7.1.js"></script>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #side-menu {
+            height: 655px;
+            width: 50px;
+            background-color: rgb(170, 168, 168);
+        }
+
+        /* .width-control {
+            width: 200px;
+        } */
+
+        #item1,
+        #item2 {
+            padding: 5px;
+            font-size: 20px;
+            margin: 0px;
+            background-color: grey;
+        }
+
+        .item1,
+        .item2 {
+            display: none;
+            position: relative;
+            left: 10px;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        #txt-content {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <aside id="side-menu">
+        <div id="txt-content">
+            <div id="item1">item 1</div>
+            <div class="item1">item 1 content</div>
+            <div id="item2">item 2</div>
+            <div class="item2">item 2 content</div>
+        </div>
+    </aside>
+    <script>
+        //menu hover handler
+        $("#side-menu").hover(function () {
+            //hover in handler
+            $("#txt-content").show();
+            $(this).width("200px");
+            console.log("entered");
+        }, function () {
+            //hover out handler
+            $("#txt-content").hide();
+            $(this).width("20px");
+        });
+        //item contents slide handler
+        $("div").click(function () {
+            var id = $(this).attr("id");
+            $("." + id).slideToggle(1000);
+        });
+
+    </script>
+</body>
+
+</html>

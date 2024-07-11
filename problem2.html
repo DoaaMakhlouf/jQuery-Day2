@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>problem2</title>
+    <script src="jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="./bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-header {
+            color: white;
+            background-color:rgb(63, 195, 212);
+        }
+
+        .card-body {
+            color: black;
+            background-color: lightgrey;
+        }
+
+        .card {
+            margin-bottom: 5px;
+            max-width: 50rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header"></div>
+        <div class="card-body"></div>
+    </div> -->
+
+    <script>
+        $.get("https://jsonplaceholder.typicode.com/posts", function (posts) {
+            posts.forEach(function (el) {
+                var postTitle = "<h5 class='card-header'>" + el.title + "</h5>";
+                var postBody = "<div class='card-body'>" + el.body + "</div>";
+                var post = "<div class='card'>" + postTitle + postBody + "</div>";
+                $("body").append(post);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
